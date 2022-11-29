@@ -5,6 +5,7 @@ export default defineConfig({
   format: ['cjs'],
   dts: true,
   outDir: 'lib',
+  noExternal: ["eaze"],
   treeshake: true,
   minify: true,
 })

@@ -1,6 +1,4 @@
-// import using "*" needed to get correctly build require when building js version
-// see: https://www.typescriptlang.org/tsconfig#allowSyntheticDefaultImports
-import * as eaze from 'eaze';
+import eaze from 'eaze';
 
 /*************************
  * INTERFACES
@@ -92,7 +90,7 @@ function generateShadow(params: ShadowParams, elevation: number): string {
   // from linear to ease-out
   const offsetEasing: [number, number, number, number] = [0.5 + 0.5 * crispRatio, 0.1, 0.9, 0.7];
 
-  const eased = eaze.default(
+  const eased = eaze(
     steps,
     { value: xOffsetMax, easing: offsetEasing },
     { value: yOffsetMax, easing: offsetEasing },
