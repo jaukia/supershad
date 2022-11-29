@@ -49,8 +49,5 @@
   "dependencies": {
     "eaze": "^0.1.2"
   },
-  "packageManager": "yarn@3.3.0",
-  "installConfig": {
-    "pnp": true
-  }
+  "packageManager": "yarn@3.3.0"
 }
