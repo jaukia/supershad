@@ -6,9 +6,13 @@ Try it out on Runkit https://npm.runkit.com/supershad with this example:
 
 ```js
 var supershad = require("supershad");
-const shadowDefs = supershad.default({xAngleDeg:10,yAngleDeg:30,resolution:0.5,crispness:0.5,useDebug:false});
+const shadowDefs = supershad.default({xAngleDeg:10,
+    yAngleDeg:30,resolution:0.5,crispness:0.5,useDebug:false});
 
-const example = shadowDefs.map((s, i) => `<div style="--shadow-color:225deg 35% 30%;height:4em;box-shadow:${s};margin:2em;display:flex;justify-content:center;align-items:center;">Shadow ${i}</div>`).join("\n");
+const example = shadowDefs.map((s, i) => 
+    `<div style="--shadow-color:225deg 35% 30%;height:4em;
+    box-shadow:${s};margin:2em;display:flex;justify-content:center;
+    align-items:center;">Shadow ${i}</div>`).join("\n");
 ```
 
 Import in your code:

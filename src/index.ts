@@ -35,9 +35,9 @@ const defaultShadowParams: ShadowParams = {
  -------------- */
 
 export const supershad = (
-  elevations = [0.025, 0.1, 0.25, 1.0],
-  baseElevation = 200.0,
   paramsIn: Optional<ShadowParams> = {},
+  baseElevation = 200.0,
+  elevations = [0.025, 0.1, 0.25, 1.0],
 ): string[] => {
   const params = {
     ...defaultShadowParams,
