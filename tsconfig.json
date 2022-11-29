@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "./lib",
+  },
+  "include": ["src", "typedeclarations.d.ts"],
+  "exclude": ["node_modules", "**/__tests__/*"]
+}

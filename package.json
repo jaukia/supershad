@@ -1,0 +1,49 @@
+{
+  "name": "supershad",
+  "version": "0.0.1",
+  "description": "Create beautiful layered CC shadows automatically.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "tsup; jest --config jest.config.js",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jaukia/supershad.git"
+  },
+  "keywords": [
+    "shadows",
+    "css"
+  ],
+  "author": "Janne Aukia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaukia/supershad/issues"
+  },
+  "homepage": "https://github.com/jaukia/supershad#readme",
+  "devDependencies": {
+    "@types/jest": "^27.5.1",
+    "jest": "^28.1.0",
+    "prettier": "^2.6.2",
+    "ts-jest": "^28.0.3",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "tsup": "^6.4.0",
+    "typescript": "^4.7.2"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "dependencies": {
+    "eaze": "^0.1.2"
+  }
+}
