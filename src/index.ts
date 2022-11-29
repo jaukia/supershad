@@ -50,14 +50,14 @@ export const supershad = (
 };
 
 function generateShadow(params:ShadowParams, elevation:number):string {
-    let crispRatio = params.crispness;
+    const crispRatio = params.crispness;
 
-    let xOffsetMax = offsetFromAngle(degToRad(params.xAngleDeg), elevation);
-    let yOffsetMax = offsetFromAngle(degToRad(params.yAngleDeg), elevation);
+    const xOffsetMax = offsetFromAngle(degToRad(params.xAngleDeg), elevation);
+    const yOffsetMax = offsetFromAngle(degToRad(params.yAngleDeg), elevation);
 
     // heuristics dor deciding how many steps (layers) to generate
     // based on the (abs) distance of the shadow
-    let planeDistance = Math.sqrt(
+    const planeDistance = Math.sqrt(
         xOffsetMax * xOffsetMax + yOffsetMax * yOffsetMax
     );
     let steps;
@@ -71,13 +71,13 @@ function generateShadow(params:ShadowParams, elevation:number):string {
         steps = computeLayerCount(3, 10, params.resolution);
     }
 
-    let opacityEasing:[number, number, number, number] = [0, 0, 1, 1];
-    let maxOpacity = Math.min(
-        0.8 * (1.0 / (steps + 1.5)) * (0.6 + 0.4 * crispRatio),
-        1.0
+    const opacityEasing:[number, number, number, number] = [0, 0, 1, 1];
+    const maxOpacity = Math.min(
+          0.8 * (1.0 / (steps + 1.5)) * (0.6 + 0.4 * crispRatio),
+          1.0
     );
-    let minOpacity = maxOpacity * (1.0 - 0.5 * crispRatio);
-    let maxOpacityChange = maxOpacity * 0.5 * crispRatio;
+    const minOpacity = maxOpacity * (1.0 - 0.5 * crispRatio);
+    const maxOpacityChange = maxOpacity * 0.5 * crispRatio;
 
     // more blur for large distances
     // relatively more blur for small amounts of layers and for small crisp ratios
@@ -111,12 +111,11 @@ function generateShadow(params:ShadowParams, elevation:number):string {
     const fixed = (num:number, precision = 2) =>
         parseFloat(num.toFixed(precision)).toString();
 
-    let shadows:string[] = eased
-        .map(([xOffset, yOffset, blur, spread, opacityChange]:number[]) => {
-            const opacity = minOpacity + opacityChange;
-            const cssString = `${fixed(xOffset)}px ${fixed(yOffset)}px ${fixed(blur)}px ${fixed(spread)}px hsl(${params.hslPartialShadowColor} / ${fixed(opacity)})`;
-            return cssString;
-        });
+    const shadows:string[] = eased.map(([xOffset, yOffset, blur, spread, opacityChange]:number[]) => {
+        const opacity = minOpacity + opacityChange;
+        const cssString = `${fixed(xOffset)}px ${fixed(yOffset)}px ${fixed(blur)}px ${fixed(spread)}px hsl(${params.hslPartialShadowColor} / ${fixed(opacity)})`;
+        return cssString;
+    });
 
     if (params.useStroke) {
         shadows.push(`0px 0px 0px 1px hsl(${params.hslPartialShadowColor} / 0.04)`);
