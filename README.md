@@ -19,7 +19,7 @@ Import in your code:
 
 ```js
 import { supershad } from "supershad";
-const colorData = superpal();
+const shadowDefs = superpal();
 // => returns box-shadow CSS style definitions
 ```
 
