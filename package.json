@@ -1,6 +1,6 @@
 {
   "name": "supershad",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Create beautiful layered CC shadows automatically.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -45,5 +45,8 @@
   "dependencies": {
     "eaze": "^0.1.2"
   },
-  "packageManager": "yarn@3.3.0"
+  "packageManager": "yarn@3.3.0",
+  "installConfig": {
+    "pnp": true
+  }
 }
