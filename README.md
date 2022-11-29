@@ -2,6 +2,18 @@
 
 Create beautiful layered CSS shadows automatically.
 
+```js
+var supershad = require("supershad");
+const colorData = supershad.default();
+
+// or
+
+import { supershad } from "supershad";
+const colorData = superpal();
+
+// => these return box-shadow CSS style definitions
+```
+
 ## Inspiration and References
 
 Eaze library by Philipp Brumm, used for easing the shadow parameters  
