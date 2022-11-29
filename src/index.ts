@@ -1,8 +1,8 @@
 import eaze from 'eaze';
 
-/*************************
- * INTERFACES
- *************************/
+/* --------------
+  INTERFACES
+ -------------- */
 
 type Optional<Type> = {
   [Property in keyof Type]+?: Type[Property];
@@ -30,9 +30,9 @@ const defaultShadowParams: ShadowParams = {
   hslPartialShadowColor: 'var(--shadow-color)',
 };
 
-/*************************
- * SUPERSHAD MAIN FUNCTIONS
- *************************/
+/* --------------
+  MAIN FUNCTIONS
+ -------------- */
 
 export const supershad = (
   elevations = [0.025, 0.1, 0.25, 1.0],
@@ -46,7 +46,7 @@ export const supershad = (
   return elevations.map((val: number) => generateShadow(params, baseElevation * val));
 };
 
-function generateShadow(params: ShadowParams, elevation: number): string {
+const generateShadow = (params: ShadowParams, elevation: number): string => {
   const crispRatio = params.crispness;
 
   const xOffsetMax = offsetFromAngle(degToRad(params.xAngleDeg), elevation);
@@ -115,22 +115,22 @@ function generateShadow(params: ShadowParams, elevation: number): string {
   }
 
   return shadows.join(',\n');
-}
+};
 
-function computeLayerCount(min: number, max: number, res: number) {
-  return Math.round(min + ((max - min) * res) / 100.0);
-}
+const computeLayerCount = (min: number, max: number, res: number) => {
+  return Math.round(min + (max - min) * res);
+};
 
-function degToRad(angleDeg: number) {
+const degToRad = (angleDeg: number) => {
   return (angleDeg * Math.PI) / 180.0;
-}
+};
 
-function offsetFromAngle(angleRad: number, depth: number) {
+const offsetFromAngle = (angleRad: number, depth: number) => {
   return depth * Math.tan(angleRad);
-}
+};
 
-/*************************
- * DEFAULT EXPORT
- *************************/
+/* --------------
+  DEFAULT EXPORT
+ -------------- */
 
 export default supershad;
