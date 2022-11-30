@@ -17,6 +17,9 @@ interface ShadowParams {
   useStroke: boolean;
   useDebug: boolean;
   rgbPartialShadowColor: string;
+  baseElevation: number;
+  elevations: number[];
+  
 }
 
 const defaultShadowParams: ShadowParams = {
@@ -28,6 +31,8 @@ const defaultShadowParams: ShadowParams = {
   useStroke: true,
   useDebug: false,
   rgbPartialShadowColor: 'var(--rgb-partial-shadow-color)',
+  baseElevation: 200.0,
+  elevations: [0.025, 0.1, 0.25, 1.0],
 };
 
 /* --------------
@@ -36,14 +41,12 @@ const defaultShadowParams: ShadowParams = {
 
 export const supershad = (
   paramsIn: Optional<ShadowParams> = {},
-  baseElevation = 200.0,
-  elevations = [0.025, 0.1, 0.25, 1.0],
 ): string[] => {
   const params = {
     ...defaultShadowParams,
     ...paramsIn,
   };
-  return elevations.map((val: number) => generateShadow(params, baseElevation * val));
+  return params.elevations.map((val: number) => generateShadow(params, params.baseElevation * val));
 };
 
 const generateShadow = (params: ShadowParams, elevation: number): string => {
