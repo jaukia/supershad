@@ -1,6 +1,6 @@
 {
   "name": "supershad",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "description": "Create beautiful layered CC shadows automatically.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -14,7 +14,7 @@
     "prepack": "yarn build",
     "prepublish": "yarn format && yarn test && yarn lint",
     "publish": "yarn npm publish --access public",
-    "bump": "yarn lint && yarn version -i patch && git push && git push --tags"
+    "bump": "yarn lint && yarn version -i patch && git commit -am \"Bump version\" && git push && git push --tags"
   },
   "repository": {
     "type": "git",
