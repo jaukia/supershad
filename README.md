@@ -24,7 +24,8 @@ const shadowDefs = superpal();
 // => returns box-shadow CSS style definitions
 ```
 
-For input parameters, have a look at the code for now!
+Interactive notebook with visualizations on Observable:
+https://observablehq.com/@jaukia/supershad-npm-example
 
 ## Inspiration and References
 
