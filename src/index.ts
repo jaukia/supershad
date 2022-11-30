@@ -19,7 +19,6 @@ interface ShadowParams {
   rgbPartialShadowColor: string;
   baseElevation: number;
   elevations: number[];
-  
 }
 
 const defaultShadowParams: ShadowParams = {
@@ -39,9 +38,7 @@ const defaultShadowParams: ShadowParams = {
   MAIN FUNCTIONS
  -------------- */
 
-export const supershad = (
-  paramsIn: Optional<ShadowParams> = {},
-): string[] => {
+export const supershad = (paramsIn: Optional<ShadowParams> = {}): string[] => {
   const params = {
     ...defaultShadowParams,
     ...paramsIn,
