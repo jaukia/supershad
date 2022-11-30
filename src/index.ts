@@ -104,9 +104,9 @@ const generateShadow = (params: ShadowParams, elevation: number): string => {
 
   const shadows: string[] = eased.map(([xOffset, yOffset, blur, spread, opacityChange]: number[]) => {
     const opacity = minOpacity + opacityChange;
-    const cssString = 
-      `${fixed(xOffset)}px ${fixed(yOffset)}px ${fixed(blur)}px ${fixed(spread)}px rgba(${
-      params.rgbPartialShadowColor}, ${fixed(opacity)})`;
+    const cssString = `${fixed(xOffset)}px ${fixed(yOffset)}px ${fixed(blur)}px ${fixed(spread)}px rgba(${
+      params.rgbPartialShadowColor
+    }, ${fixed(opacity)})`;
     return cssString;
   });
 
