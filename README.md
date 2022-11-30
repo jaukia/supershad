@@ -10,7 +10,7 @@ const shadowDefs = supershad.default({xAngleDeg:10,
     yAngleDeg:30,resolution:0.5,crispness:0.5,useDebug:false});
 
 const example = shadowDefs.map((s, i) => 
-    `<div style="--shadow-color:225deg 35% 30%;height:4em;
+    `<div style="--rbg-partial-shadow-color:50 63 103;height:4em;
     box-shadow:${s};margin:2em;display:flex;justify-content:center;
     align-items:center;">Shadow ${i}</div>`).join("\n");
 ```

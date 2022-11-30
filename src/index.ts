@@ -16,7 +16,7 @@ interface ShadowParams {
   useSpread: boolean;
   useStroke: boolean;
   useDebug: boolean;
-  hslPartialShadowColor: string;
+  rgbPartialShadowColor: string;
 }
 
 const defaultShadowParams: ShadowParams = {
@@ -27,7 +27,7 @@ const defaultShadowParams: ShadowParams = {
   useSpread: true,
   useStroke: true,
   useDebug: false,
-  hslPartialShadowColor: 'var(--shadow-color)',
+  rgbPartialShadowColor: 'var(--rgb-partial-shadow-color)',
 };
 
 /* --------------
@@ -104,14 +104,14 @@ const generateShadow = (params: ShadowParams, elevation: number): string => {
 
   const shadows: string[] = eased.map(([xOffset, yOffset, blur, spread, opacityChange]: number[]) => {
     const opacity = minOpacity + opacityChange;
-    const cssString = `${fixed(xOffset)}px ${fixed(yOffset)}px ${fixed(blur)}px ${fixed(spread)}px hsl(${
-      params.hslPartialShadowColor
-    } / ${fixed(opacity)})`;
+    const cssString = 
+      `${fixed(xOffset)}px ${fixed(yOffset)}px ${fixed(blur)}px ${fixed(spread)}px rgba(${
+      params.rgbPartialShadowColor}, ${fixed(opacity)})`;
     return cssString;
   });
 
   if (params.useStroke) {
-    shadows.push(`0px 0px 0px 1px hsl(${params.hslPartialShadowColor} / 0.04)`);
+    shadows.push(`0px 0px 0px 1px rgba(${params.rgbPartialShadowColor}, 0.04)`);
   }
 
   return shadows.join(',\n');

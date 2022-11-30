@@ -1,6 +1,6 @@
 {
   "name": "supershad",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Create beautiful layered CC shadows automatically.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
